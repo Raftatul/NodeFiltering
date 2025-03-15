@@ -124,7 +124,24 @@
 			"Misc":
 				{
 					"Node": true,
+					"CanvasLayer": true,
 					"AudioStreamPlayer": true,
+					"MultiplayerSynchronizer": true,
+					"MultiplayerSpawner": true,
+					"AnimationPlayer": true,
+					"Timer": true,
+					"SubViewport": true,
+				}
+		},
+	"Example - Level Design":
+		{
+			"Meshs":
+				{
+					"MeshInstance3D": true,
+				},
+			"Lights":
+				{
+					"OmniLight3D": true,
 				}
 		}
 }

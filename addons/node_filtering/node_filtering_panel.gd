@@ -70,10 +70,12 @@ func _generate_filters() -> void:
 	var json: JSON = JSON.new()
 	var data: Dictionary = json.parse_string(file.get_as_text())
 	
-	for key in data:
+	for key: String in data:
+		if key.contains("Example"):
+			continue
 		_generate_tab(key, data[key])
 	
-	tab_container.current_tab = current_tab
+	tab_container.current_tab = min(current_tab, tab_container.get_tab_count() - 1)
 	
 	_update_buttons_states()
 
