@@ -32,7 +32,7 @@ layout_mode = 2
 [node name="RefreshBtn" type="Button" parent="MarginContainer/MainGrid"]
 layout_mode = 2
 focus_mode = 0
-text = "refresh
+text = "Refresh
 "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainGrid"]
