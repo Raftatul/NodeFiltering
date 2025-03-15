@@ -22,4 +22,4 @@ Set a class to true to display it and false to hide it.
 		}
 ```
 
-[rls]: https://github.com/Raftatul/NodeFiltering/releases/latest****
+[rls]: https://github.com/Raftatul/NodeFiltering/releases/latest
