@@ -1,0 +1,122 @@
+{
+	"3D":
+		{
+		"Visuals":
+			{
+				"DirectionalLight3D": true,
+				"OmniLight3D": true,
+				"SpotLight3D": true,
+				"OccluderInstance3D": true,
+				"ReflectionProbe": true,
+				"LightmapGI": true,
+				"LightmapProbe": true,
+				"VoxelGI": true,
+				"FogVolume": true,
+				"CPUParticles3D": true,
+				"GPUParticles3D": true,
+				"MeshInstance3D": true,
+			},
+		"Physics":
+			{
+				"StaticBody3D": true,
+				"AnimatableBody3D": true,
+				"CharacterBody3D": true,
+				"PhysicalBone3D": true,
+				"RigidBody3D": true,
+				"VehicleBody3D": true,
+				"Area3D": true,
+				"CollisionPolygon3D": true,
+				"CollisionShape3D": true,
+				"PinJoint3D": true,
+			},
+		"Misc":
+			{
+				"Node3D": true,
+				"Marker3D": true,
+				"AudioStreamPlayer3D": true,
+				"Camera3D": true,
+				"AudioListener3D": true,
+				"Path3D": true,
+				"PathFollow3D": true,
+				"Sprite3D": true,
+			},
+		},
+	"2D":
+		{
+		"Visuals":
+			{
+				"DirectionalLight2D": true,
+				"PointLight2D": true,
+				"LightOccluder2D": true,
+				"Sprite2D": true,
+				"AnimatedSprite2D": true,
+				"Polygon2D": true,
+				"MeshInstance2D": true,
+				"BackBufferCopy": true,
+				"CanvasGroup": true,
+				"CPUParticles2D": true,
+				"GPUParticles2D": true,
+			},
+		"Physics":
+			{
+				"StaticBody2D": true,
+				"AnimatableBody2D": true,
+				"CharacterBody2D": true,
+				"PhysicalBone2D": true,
+				"RigidBody2D": true,
+				"Area2D": true,
+				"CollisionPolygon2D": true,
+				"CollisionShape2D": true,
+				"DampedSpringJoint2D": true,
+				"GrooveJoint2D": true,
+				"PinJoint2D": true,
+			},
+		"Misc":
+			{
+				"Node2D": true,
+				"Marker2D": true,
+				"AudioStreamPlayer2D": true,
+				"Camera2D": true,
+				"AudioListener2D": true,
+				"Path2D": true,
+				"PathFollow2D": true,
+				"TileMapLayer": true,
+			},
+		},
+	"Control":
+		{
+		"Containers":
+			{
+				"AspectRatioContainer": true,
+				"HBoxContainer": true,
+				"VBoxContainer": true,
+				"CenterContainer": true,
+				"ScrollContainer": true,
+				"SplitContainer": true,
+				"GridContainer": true,
+				"MarginContainer": true,
+				"PanelContainer": true,
+				"TabContainer": true,
+			},
+		"Elements":
+			{
+				"BaseButton": true,
+				"Button": true,
+				"TextureButton": true,
+				"MenuButton": true,
+				"OptionButton": true,
+				"LinkButton": true,
+				"CheckBox": true,
+				"CheckButton": true,
+				"TextEdit": true,
+				"CodeEdit": true,
+				"LineEdit": true,
+			},
+		"Visuals":
+			{
+				"ColorRect": true,
+				"TextureRect": true,
+				"VideoStreamPlayer": true,
+			},
+		},
+}

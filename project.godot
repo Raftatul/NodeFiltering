@@ -1,0 +1,20 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="NodeFiltering"
+run/main_scene="uid://bwvew1p7w2pco"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/explore-editor-theme/plugin.cfg", "res://addons/node_filtering/plugin.cfg", "res://addons/self_inspect/plugin.cfg", "res://addons/zylann.editor_debugger/plugin.cfg")

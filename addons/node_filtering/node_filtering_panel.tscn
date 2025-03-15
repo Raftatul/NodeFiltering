@@ -1,0 +1,189 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4jxi0kqi0i2d"]
+
+[ext_resource type="Script" uid="uid://cpssl2vhjuupd" path="res://addons/node_filtering/node_filtering_panel.gd" id="1_nr4it"]
+[ext_resource type="Texture2D" uid="uid://4t3o4iv3ugkj" path="res://addons/node_filtering/clear_icon.png" id="2_fqv13"]
+
+[node name="NodeFiltering" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nr4it")
+
+[node name="PanelContainer" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="PanelContainer" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="MainGrid" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Filter" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Filter:"
+
+[node name="MainContainer" type="Control" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 166.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+current_tab = 0
+drag_to_rearrange_enabled = true
+tab_focus_mode = 0
+
+[node name="3D" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 15
+columns = 3
+metadata/_tab_index = 0
+
+[node name="LightL" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/3D"]
+layout_mode = 2
+text = "Lights"
+
+[node name="PhysicsL" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/3D"]
+layout_mode = 2
+text = "Physics"
+
+[node name="MiscL" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/3D"]
+layout_mode = 2
+text = "Misc"
+
+[node name="Lights" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/3D"]
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 3
+
+[node name="Physics" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/3D"]
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 3
+
+[node name="Misc" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/3D"]
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 3
+
+[node name="2D" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 15
+columns = 3
+metadata/_tab_index = 1
+
+[node name="LightL" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/2D"]
+layout_mode = 2
+text = "Visuals"
+
+[node name="PhysicsL" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/2D"]
+layout_mode = 2
+text = "Physics"
+
+[node name="MiscL" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/2D"]
+layout_mode = 2
+text = "Misc"
+
+[node name="Lights" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/2D"]
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 3
+
+[node name="Physics" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/2D"]
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 3
+
+[node name="Misc" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/2D"]
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 3
+
+[node name="Control" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 15
+columns = 3
+metadata/_tab_index = 2
+
+[node name="ContainerL" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/Control"]
+layout_mode = 2
+text = "Containers"
+
+[node name="ElementL" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/Control"]
+layout_mode = 2
+text = "Elements"
+
+[node name="VisualL" type="Label" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/Control"]
+layout_mode = 2
+text = "Visuals"
+
+[node name="Container" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 3
+
+[node name="Element" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 3
+
+[node name="Visual" type="GridContainer" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/TabContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 3
+
+[node name="Clear" type="Button" parent="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+focus_mode = 0
+icon = ExtResource("2_fqv13")
+metadata/_custom_type_script = "uid://dm2kqxb60oa6y"
+
+[connection signal="pressed" from="PanelContainer/ScrollContainer/MarginContainer/MainGrid/MainContainer/Clear" to="." method="_on_clear_pressed"]
