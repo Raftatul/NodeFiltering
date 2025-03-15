@@ -119,4 +119,12 @@
 				"VideoStreamPlayer": true,
 			},
 		},
+	"Other":
+		{
+			"Misc":
+				{
+					"Node": true,
+					"AudioStreamPlayer": true,
+				}
+		}
 }

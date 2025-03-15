@@ -14,6 +14,8 @@ func _ready() -> void:
 	icon = get_theme_icon(name, "EditorIcons")
 	focus_mode = Control.FOCUS_NONE
 	
+	tooltip_text = name
+	
 	if toggle_mode:
 		toggled.connect(_on_toggled)
 	else:

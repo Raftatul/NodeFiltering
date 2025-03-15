@@ -15,22 +15,9 @@ var edit: LineEdit
 var type_in_tree: Array[String]
 var buttons: Dictionary[String, BaseButton]
 
-@onready var main_container: Control = %MainContainer
+var current_tab: int = -1
 
-#3D
-@onready var _3d_lights_cont: Control = %"3D".get_node("Lights")
-@onready var _3d_physics_cont: Control = %"3D".get_node("Physics")
-@onready var _3d_misc_cont: Control = %"3D".get_node("Misc")
-
-#2D
-@onready var _2d_lights_cont: Control = %"2D".get_node("Lights")
-@onready var _2d_physics_cont: Control = %"2D".get_node("Physics")
-@onready var _2d_misc_cont: Control = %"2D".get_node("Misc")
-
-#Control
-@onready var _control_container_cont: Control = %Control.get_node("Container")
-@onready var _control_element_cont: Control = %Control.get_node("Element")
-@onready var _control_visual_cont: Control = %Control.get_node("Visual")
+@onready var tab_container: TabContainer = %TabContainer
 
 
 func _ready() -> void:
@@ -40,8 +27,55 @@ func _ready() -> void:
 	
 	if EditorInterface.get_edited_scene_root():
 		_on_tree_loaded(EditorInterface.get_edited_scene_root())
-	#print(EditorInterface.get_open_scenes())
-	#EditorInterface.get_edited_scene_root().get_parent().child_entered_tree.connect(_on_tree_loaded)
+
+
+func _create_buttons(filters: Dictionary, container: Control) -> void:
+	for key in filters:
+		if !filters[key]:
+			continue
+		var button: FilterButton = FilterButton.new(key)
+		button.filter_pressed.connect(_on_filter_pressed)
+		button.filter_released.connect(_on_filter_released)
+		container.add_child(button)
+		buttons[key] = button
+
+
+func _generate_tab(tab_name: String, tab_data: Dictionary) -> void:
+	var tab: VBoxContainer = VBoxContainer.new()
+	
+	tab_container.add_child(tab)
+	tab.name = tab_name
+	
+	for key in tab_data:
+		var filters_container: HFlowContainer = HFlowContainer.new()
+		var label: Label = Label.new()
+		
+		label.text = key
+		
+		tab.add_child(label)
+		tab.add_child(filters_container)
+		
+		_create_buttons(tab_data[key], filters_container)
+
+
+func _generate_filters() -> void:
+	buttons.clear()
+	
+	current_tab = tab_container.current_tab
+	
+	for i in tab_container.get_child_count():
+		tab_container.get_child(0).free()
+	
+	var file: FileAccess = FileAccess.open(FILTERS_PATH, FileAccess.READ)
+	var json: JSON = JSON.new()
+	var data: Dictionary = json.parse_string(file.get_as_text())
+	
+	for key in data:
+		_generate_tab(key, data[key])
+	
+	tab_container.current_tab = current_tab
+	
+	_update_buttons_states()
 
 
 func _on_tree_loaded(scene_root: Node) -> void:
@@ -52,26 +86,7 @@ func _on_tree_loaded(scene_root: Node) -> void:
 	
 	_connect_signals(edited_scene_root)
 	
-	var file: FileAccess = FileAccess.open(FILTERS_PATH, FileAccess.READ)
-	var json: JSON = JSON.new()
-	var data: Dictionary = json.parse_string(file.get_as_text())
-	
-	#3D
-	_create_buttons(data["3D"]["Visuals"], _3d_lights_cont)
-	_create_buttons(data["3D"]["Physics"], _3d_physics_cont)
-	_create_buttons(data["3D"]["Misc"], _3d_misc_cont)
-	
-	#2D
-	_create_buttons(data["2D"]["Visuals"], _2d_lights_cont)
-	_create_buttons(data["2D"]["Physics"], _2d_physics_cont)
-	_create_buttons(data["2D"]["Misc"], _2d_misc_cont)
-	
-	#Control
-	_create_buttons(data["Control"]["Containers"], _control_container_cont)
-	_create_buttons(data["Control"]["Elements"], _control_element_cont)
-	_create_buttons(data["Control"]["Visuals"], _control_visual_cont)
-	
-	_update_buttons_states()
+	_generate_filters()
 
 
 func _connect_signals(tree_root: Node) -> void:
@@ -96,18 +111,6 @@ func _on_edited_scene_changed(scene_root: Node) -> void:
 	
 	type_in_tree = NodeFilteringUtilityClass.get_children_types(edited_scene_root)
 	_update_buttons_states()
-
-
-func _create_buttons(filters: Dictionary, container: Control) -> void:
-	for key in filters:
-		if !filters[key]:
-			continue
-		var button: FilterButton = FilterButton.new(key)
-		button.filter_pressed.connect(_on_filter_pressed)
-		button.filter_released.connect(_on_filter_released)
-		container.add_child(button)
-		buttons[key] = button
-	
 
 
 func _update_buttons_states() -> void:
@@ -155,3 +158,7 @@ func _on_child_exiting_tree(node: Node) -> void:
 	var remaining_node_count: int = similar_type_nodes.size()
 	if remaining_node_count == 1 and similar_type_nodes.has(node):
 		buttons[node.get_class()].disabled = true
+
+
+func _on_refresh_btn_pressed() -> void:
+	_generate_filters()
