@@ -65,6 +65,10 @@ all_tabs_in_front = true
 drag_to_rearrange_enabled = true
 tab_focus_mode = 0
 
+[node name="Control" type="Control" parent="MarginContainer/MainGrid/HBoxContainer/MainContainer/ScrollContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
 [node name="Clear" type="Button" parent="MarginContainer/MainGrid/HBoxContainer/MainContainer"]
 layout_mode = 2
 size_flags_vertical = 0
