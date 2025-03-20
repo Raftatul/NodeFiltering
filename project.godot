@@ -13,7 +13,6 @@ config_version=5
 config/name="NodeFiltering"
 run/main_scene="uid://bwvew1p7w2pco"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
 
 [editor_plugins]
 
