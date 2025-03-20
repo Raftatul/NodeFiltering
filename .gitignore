@@ -4,5 +4,6 @@
 
 test/
 
+project.godot
 addons/*
 !addons/node_filtering/
