@@ -4,12 +4,14 @@ class_name NodeFilteringUtilityClass
 
 ## Returns all children of given type.
 ## The returned Array is untyped, so it has to be assigned to a typed array later.
-static func get_children_of_type(parent: Node, type: Variant) -> Array:
+static func get_children_of_type(parent: Node, type: Variant, recursive: bool = true) -> Array:
 	assert(parent, "parent is null")
 	var array: Array
 	for child: Node in parent.get_children():
 		if is_instance_of(child, type):
 			array.append(child)
+		if recursive:
+			array.append_array(get_children_of_type(child, type, recursive))
 	return array
 
 

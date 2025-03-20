@@ -3,7 +3,7 @@ extends Control
 
 
 const PREFIX: String = "tt:"
-const FILTER_EDIT_PATH: String = "/root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockVSplitLeftR/DockSlotLeftUR/Scene/@HBoxContainer@5043/@LineEdit@5044"
+const FILTER_EDIT_PATH: String = "/root/0/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockVSplitLeftR/DockSlotLeftUR/Scene/@HBoxContainer@5043/@LineEdit@5044"
 
 const FILTERS_PATH = "res://addons/node_filtering/filters.txt"
 
@@ -21,7 +21,7 @@ var current_tab: int = -1
 
 
 func _ready() -> void:
-	edit = EditorInterface.get_base_control().get_node(FILTER_EDIT_PATH)
+	edit = NodeFilteringUtilityClass.get_children_of_type(EditorInterface.get_base_control(), LineEdit)[0]
 	plugin.scene_changed.connect(_on_tree_loaded)
 	plugin.scene_changed.connect(_on_edited_scene_changed)
 	
