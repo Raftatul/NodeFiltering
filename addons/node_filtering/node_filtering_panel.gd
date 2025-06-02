@@ -50,6 +50,7 @@ func _generate_tab(tab_name: String, tab_data: Dictionary) -> void:
 		var filters_container: HFlowContainer = HFlowContainer.new()
 		var label: Label = Label.new()
 		
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		label.text = key
 		
 		tab.add_child(label)
@@ -163,4 +164,5 @@ func _on_child_exiting_tree(node: Node) -> void:
 
 
 func _on_refresh_btn_pressed() -> void:
+	type_in_tree = NodeFilteringUtilityClass.get_children_types(edited_scene_root)
 	_generate_filters()
