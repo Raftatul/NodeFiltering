@@ -3,8 +3,6 @@ extends Control
 
 
 const PREFIX: String = "tt:"
-const FILTER_EDIT_PATH: String = "/root/0/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockVSplitLeftR/DockSlotLeftUR/Scene/@HBoxContainer@5043/@LineEdit@5044"
-
 const FILTERS_PATH = "res://addons/node_filtering/filters.txt"
 
 var plugin: NodeFiltering
