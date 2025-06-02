@@ -162,5 +162,6 @@ func _on_child_exiting_tree(node: Node) -> void:
 
 
 func _on_refresh_btn_pressed() -> void:
-	type_in_tree = NodeFilteringUtilityClass.get_children_types(edited_scene_root)
+	if edited_scene_root:
+		type_in_tree = NodeFilteringUtilityClass.get_children_types(edited_scene_root)
 	_generate_filters()
